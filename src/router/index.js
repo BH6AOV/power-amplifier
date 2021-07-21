@@ -1,10 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Dashboard from '../pages/dashboard'
-import Serial from '../pages/serial'
+import Network from '../pages/network'
 
 const routes = [
     { path: '/', component: Dashboard, alias: '/home' },
-    { path: '/serial', component: Serial }
+    { path: '/net', component: Network }
 ]
 
 const router = new createRouter({

@@ -6,7 +6,7 @@ require('./core/tcp-client');
 function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 640,
-    height: 350,
+    height: 366,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false

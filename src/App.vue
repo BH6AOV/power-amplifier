@@ -6,7 +6,7 @@
 export default {
   name: "App",
   created(){
-    this.$router.push('/net')
+    // this.$router.push('/net')
   }
 };
 </script>

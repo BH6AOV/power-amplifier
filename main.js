@@ -1,12 +1,13 @@
 // main.js
 const { app, BrowserWindow } = require("electron");
 
-require('./core/tcp-client');
+require("./core/tcp-client");
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 640,
     height: 366,
+    resizable: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false

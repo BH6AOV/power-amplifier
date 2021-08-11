@@ -87,17 +87,10 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
-  data() {
-    return {
-      power: 1200,
-      standingWave: 1.4,
-      band: 15,
-      status: 1,
-      reflect: 100,
-    };
-  },
   computed: {
+    ...mapState(["power", "standingWave", "band", "status", "reflect"]),
     getFreePowerItem() {
       return Number((30 - this.getPowerItem).toFixed(0));
     },
@@ -156,25 +149,6 @@ export default {
       const vv = Math.pow(10, v);
       return Math.round(num * vv) / vv;
     },
-  },
-  created() {
-    /* DEBUG_START */
-    function getRandom(n, m) {
-      var num = Math.floor(Math.random() * (m - n + 1) + n);
-      return num;
-    }
-    function getFloatRandom(n, m) {
-      return (Math.random() * (n - m) + m).toFixed(1);
-    }
-    setInterval(() => {
-      this.power = getRandom(800, 1150);
-    }, "100");
-    setInterval(() => {
-      this.standingWave = getFloatRandom(1, 4.8);
-      this.reflect = getRandom(10, 120);
-    }, "500");
-    console.log(this.getStandingWave);
-    /* DEBUG_END */
   },
 };
 </script>

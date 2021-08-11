@@ -28,7 +28,7 @@ const createClient = ({
   client = new net.Socket();
   client.connect(port, ip, initCallback);
   client.on("data", data => {
-    dataCallback(data);
+    dataCallback(data.toString());
   });
   client.on("close", function() {
     clientEstablish = false;

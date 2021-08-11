@@ -3,11 +3,17 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "App",
-  created(){
-    // this.$router.push('/net')
-  }
+  computed: {
+    ...mapState(["linkState"]),
+  },
+  created() {
+    if (this.linkState === 0) {
+      this.$router.push("/net");
+    }
+  },
 };
 </script>
 

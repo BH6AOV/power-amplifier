@@ -7,6 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "dev": "node script/electron-run-dev.js",
+    "pre": "electron .",
     "test:server": "node test/test-mockserver.js"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
   },
   "main": "main.js",
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.59",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",

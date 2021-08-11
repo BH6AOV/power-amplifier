@@ -13,11 +13,13 @@ function createWindow() {
       contextIsolation: false
     }
   });
-
-  mainWindow.loadURL("http://localhost:8080/");
+  
 
   // 打开开发者工具
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
+  // mainWindow.loadURL("http://localhost:8080/");
+
+  mainWindow.loadURL(`file://${__dirname}/dist/index.html`)
 }
 
 app.whenReady().then(() => {

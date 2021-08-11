@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import { linkTypeEnum } from "../../contants";
 const ipcRenderer = window.electron.ipcRenderer;
 
 export default {
@@ -23,31 +21,6 @@ export default {
       port: null,
       ready: false,
     };
-  },
-  computed: {
-    ...mapState(["linkType", "linkMsg", "linkExtraInfo"]),
-  },
-  watch: {
-    linkType() {
-      switch (this.linkType) {
-        case linkTypeEnum.established: {
-          this.$waveui.notify("连接成功", "success", 3000);
-          this.$router.push("/home");
-          break;
-        }
-        case linkTypeEnum.linkFail: {
-          this.$waveui.notify("连接失败" + this.linkMsg, "error", 3000);
-          break;
-        }
-        case linkTypeEnum.lossLink: {
-          this.$waveui.notify("连接丢失", "info", 3000);
-          break;
-        }
-        default: {
-          break;
-        }
-      }
-    },
   },
   methods: {
     connect() {

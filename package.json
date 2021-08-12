@@ -1,6 +1,6 @@
 {
   "name": "izumo",
-  "version": "0.1.0",
+  "version": "1.0.0-alpha1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -8,11 +8,14 @@
     "lint": "vue-cli-service lint",
     "dev": "node script/electron-run-dev.js",
     "pre": "electron .",
-    "test:server": "node test/test-mockserver.js"
+    "test:server": "node test/test-mockserver.js",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "electron": "^13.1.4",
+    "electron-squirrel-startup": "^1.0.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.10",
     "vuex": "^4.0.2",
@@ -21,12 +24,16 @@
   "main": "main.js",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.59",
+    "@electron-forge/maker-deb": "^6.0.0-beta.59",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.59",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.59",
+    "@electron-forge/maker-zip": "^6.0.0-beta.59",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
-    "electron-builder": "^22.11.7",
+    "electron": "^13.1.9",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0"
   },
@@ -48,5 +55,34 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "73club.icns"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "izumo"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
 }

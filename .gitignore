@@ -127,3 +127,5 @@ dist
 .tern-port
 
 package-lock.json
+
+/out/*
